@@ -8,11 +8,7 @@
       "sourceRoot": "client/src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {
-        "@schematics/angular:component": {
-          "styleext": "scss"
-        }
-      },
+      "schematics": { },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -27,9 +23,16 @@
               "client/src/assets"
             ],
             "styles": [
-              "client/src/styles.scss"
+              "client/src/styles.css",
+              "client/src/assets/styles/prettify.css"
             ],
-            "scripts": []
+            "scripts": [
+              "client/src/assets/libs/layout.js",
+              "client/src/assets/libs/jquery.scrollTo-1.4.3.1.js",
+              "client/src/assets/libs/jquery.localscroll-1.2.7.js",
+              "client/src/assets/libs/jquery.min.js",
+              "client/src/assets/libs/prettify/prettify.js"
+            ]
           },
           "configurations": {
             "production": {

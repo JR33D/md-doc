@@ -1,5 +1,8 @@
+<!-- We must use a relative URL so that the AOT compiler can find the stylesheet -->
+<link rel="stylesheet" type="text/css" [attr.href]="getStyleUrl()">
+
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div class="align">
   <h1>
     Welcome to {{ title }}!
   </h1>
