@@ -2,11 +2,10 @@ import { Injectable, InjectionToken } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemeService {
-
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor(private sanitizer: DomSanitizer) {}
 
   public trustResourceStyle(stylePath: string): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(stylePath);

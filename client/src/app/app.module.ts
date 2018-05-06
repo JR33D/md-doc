@@ -7,16 +7,9 @@ import { ThemeService } from './style.service';
 import { ThemeProvider } from './app-providers.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [
-    ThemeProvider
-  ],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule],
+  providers: [ThemeProvider],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
