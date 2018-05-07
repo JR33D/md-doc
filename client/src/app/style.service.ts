@@ -1,9 +1,20 @@
 import { Injectable, InjectionToken } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
-@Injectable({
-   providedIn: 'root',
-})
+export interface ITheme {
+   /**
+    * This is the name of the theme/css file minus the .css extension
+    */
+   name: string;
+   /**
+    * This is the path to the theme if it is not under `./assets/styles`; Code adds trailing `/` to path.
+    */
+   path?: string;
+}
+
+export const THEME_TOKEN = new InjectionToken<ITheme>('ThemeStyle');
+
+@Injectable()
 export class ThemeService {
    constructor(private sanitizer: DomSanitizer) {}
 
@@ -19,16 +30,3 @@ export class ThemeService {
       return this.trustResourceStyle(themePath + '/' + themeName + '.css');
    }
 }
-
-export interface ITheme {
-   /**
-    * This is the name of the theme/css file minus the .css extension
-    */
-   name: string;
-   /**
-    * This is the path to the theme if it is not under `./assets/styles`; Code adds trailing `/` to path.
-    */
-   path?: string;
-}
-
-export const THEME_TOKEN = new InjectionToken<ITheme>('ThemeStyle');

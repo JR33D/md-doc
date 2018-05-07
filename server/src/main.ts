@@ -10,6 +10,6 @@ async function bootstrap() {
    app.use(express.static(path.join(__dirname, '../../dist/md-doc')));
 
    await app.listen(process.env.PORT || 3000);
-   console.log('app listening on port' + (process.env.PORT || 3000));
+   console.log('app listening on port ' + (process.env.PORT || 3000));
 }
 bootstrap();

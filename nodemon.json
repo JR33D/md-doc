@@ -3,7 +3,7 @@
     "server/src",
     "client/src"
   ],
-  "ext": "ts",
+  "ext": "ts,html,css,md",
   "ignore": ["**/*.spec.ts"],
   "exec": "npm run start"
 }

@@ -1,4 +1,4 @@
-import { Component, Optional, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { ThemeService, THEME_TOKEN, ITheme } from './style.service';
 
 @Component({
@@ -9,12 +9,7 @@ import { ThemeService, THEME_TOKEN, ITheme } from './style.service';
 export class AppComponent {
    title = 'app';
 
-   constructor(
-      private styleService: ThemeService,
-      @Optional()
-      @Inject(THEME_TOKEN)
-      private theme: ITheme,
-   ) {}
+   constructor(private styleService: ThemeService, @Inject(THEME_TOKEN) private theme: ITheme) {}
 
    getStyleUrl() {
       return this.styleService.setProvidedTheme(this.theme.name);

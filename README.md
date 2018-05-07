@@ -2,10 +2,10 @@
 
 The end goal of this project is to create a Markdown to html documentation system built on angular and nest.
 
-## Client Serve
+## Clone and build
 
-Run `npm run start:client` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files under `client/src`.
+After cloning the repository make sure to run an `npm install` command to get all of the needed third party packages. once you go to serve the server, it will automatically build the `client/src` using the ng build command, and saving the bundled files under `./dist/` which is then hosted as static content from `server/src/app.controller.ts`.
 
-## Server Serve
+## Project Serve
 
-Run `npm run start:server` for a dev server. Navigate to `http://localhost:3000/`. You can also use the command `npm run start:server:dev` to host and will automatically reload if you change any of the source files under `server/src`.
+Run `npm run start` for a dev server. Navigate to `http://localhost:3000/`. The app will automatically reload if you change any of the source files ending in types `"ts,html,css,md"`, under the `client/src` or `server/src` folders.

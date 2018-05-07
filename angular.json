@@ -1,90 +1,94 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "projects": {
-    "md-doc": {
-      "root": "",
-      "sourceRoot": "client/src",
-      "projectType": "application",
-      "prefix": "app",
-      "schematics": { },
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/md-doc",
-            "index": "client/src/index.html",
-            "main": "client/src/main.ts",
-            "polyfills": "client/src/polyfills.ts",
-            "tsConfig": "client/src/tsconfig.app.json",
-            "assets": [
-              "client/src/favicon.ico",
-              "client/src/assets"
-            ],
-            "styles": [
-              "client/src/styles.css",
-              "client/src/assets/styles/prettify.css"
-            ],
-            "scripts": [
-              "client/src/assets/libs/layout.js",
-              "client/src/assets/libs/jquery.scrollTo-1.4.3.1.js",
-              "client/src/assets/libs/jquery.localscroll-1.2.7.js",
-              "client/src/assets/libs/jquery.min.js",
-              "client/src/assets/libs/prettify/prettify.js"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "../environments/environment.ts",
-                  "with": "../environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true
+   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+   "version": 1,
+   "newProjectRoot": "projects",
+   "projects": {
+      "md-doc": {
+         "root": "",
+         "sourceRoot": "client/src",
+         "projectType": "application",
+         "prefix": "app",
+         "schematics": {},
+         "architect": {
+            "build": {
+               "builder": "@angular-devkit/build-angular:browser",
+               "options": {
+                  "outputPath": "dist/md-doc",
+                  "index": "client/src/index.html",
+                  "main": "client/src/main.ts",
+                  "polyfills": "client/src/polyfills.ts",
+                  "tsConfig": "client/src/tsconfig.app.json",
+                  "assets": [
+                    "client/src/favicon.ico",
+                    "client/src/assets"
+                  ],
+                  "styles": [
+                    "client/src/styles.css",
+                    "node_modules/prismjs/themes/prism-okaidia.css"
+                  ],
+                  "scripts": [
+                     "node_modules/marked/lib/marked.js",
+                     "node_modules/prismjs/prism.js",
+                     "node_modules/prismjs/components/prism-csharp.min.js",
+                     "node_modules/prismjs/components/prism-css.min.js",
+                     "node_modules/prismjs/components/prism-typescript.min.js",
+                     "node_modules/prismjs/components/prism-git.min.js",
+                     "node_modules/prismjs/components/prism-bash.min.js",
+                     "node_modules/prismjs/components/prism-json.min.js",
+                     "node_modules/prismjs/components/prism-markdown.min.js",
+                     "node_modules/prismjs/components/prism-scss.min.js",
+                     "node_modules/jquery/dist/jquery.min.js",
+                     "node_modules/jquery.scrollto/jquery.scrollTo.min.js",
+                     "node_modules/jquery.localscroll/jquery.localscroll.min.js",
+                     "client/src/assets/libs/layout.js"
+                  ]
+               },
+               "configurations": {
+                  "production": {
+                     "fileReplacements": [
+                        {
+                           "replace": "../environments/environment.ts",
+                           "with": "../environments/environment.prod.ts"
+                        }
+                     ],
+                     "optimization": true,
+                     "outputHashing": "all",
+                     "sourceMap": false,
+                     "extractCss": true,
+                     "namedChunks": false,
+                     "aot": true,
+                     "extractLicenses": true,
+                     "vendorChunk": false,
+                     "buildOptimizer": true
+                  }
+               }
+            },
+            "serve": {
+               "builder": "@angular-devkit/build-angular:dev-server",
+               "options": {
+                  "browserTarget": "md-doc:build"
+               },
+               "configurations": {
+                  "production": {
+                     "browserTarget": "md-doc:build:production"
+                  }
+               }
+            },
+            "extract-i18n": {
+               "builder": "@angular-devkit/build-angular:extract-i18n",
+               "options": {
+                  "browserTarget": "md-doc:build"
+               }
+            },
+            "lint": {
+               "builder": "@angular-devkit/build-angular:tslint",
+               "options": {
+                  "tsConfig": ["client/src/tsconfig.app.json", "client/src/tsconfig.spec.json"],
+                  "exclude": ["**/node_modules/**"]
+               }
             }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "md-doc:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "md-doc:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "md-doc:build"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "client/src/tsconfig.app.json",
-              "client/src/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
+         }
       }
-    }
-  },
-  "defaultProject": "md-doc"
+   },
+   "defaultProject": "md-doc"
 }
